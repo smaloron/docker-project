@@ -1,5 +1,6 @@
 <?php
 return 
 [
-"/accueil" => "home.php",
+"/accueil" => "homeController.php",
+"/inscription" => "registerController.php"
 ];
