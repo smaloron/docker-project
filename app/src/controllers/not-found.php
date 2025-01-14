@@ -1,3 +1,4 @@
 <?php
 
-echo "La route est en travaux";
+$contentView = VIEW_PATH. "not-found.php";
+require VIEW_PATH . "layout.php";

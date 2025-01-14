@@ -2,6 +2,7 @@
 define("ROOT_PATH", dirname(__DIR__));
 define("CONTROLLER_PATH", ROOT_PATH."/src/controllers/");
 define("CONFIG_PATH", ROOT_PATH."/src/config/");
+define("VIEW_PATH", ROOT_PATH."/src/views/");
 
 // Inclusion du framework
 require ROOT_PATH. "/core/framework.php";
