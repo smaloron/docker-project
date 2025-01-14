@@ -11,7 +11,7 @@
 function getController(string $route, array $routeMap): string{
     // La route est-elle référencée
     if(! array_key_exists($route, $routeMap)){
-        return "not-found.php";
+        return "notFoundController.php";
     }
 
     // récupération du contrôleur en fonction de la route
@@ -19,7 +19,7 @@ function getController(string $route, array $routeMap): string{
 
     // Le contr$oleur existe-t-il ?
     if(! file_exists(CONTROLLER_PATH . $controller)){
-        return "not-found.php";
+        return "notFoundController.php";
     }
 
     return $controller;
