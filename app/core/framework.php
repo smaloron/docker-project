@@ -24,3 +24,13 @@ function getController(string $route, array $routeMap): string{
 
     return $controller;
 }
+
+
+function getPDO(string $dsn, string $user, string $pass): PDO{
+    return new PDO (
+        $dsn,
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+}
