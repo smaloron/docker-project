@@ -8,6 +8,15 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 >
+
+<style>
+    .error {
+        padding: 10px;
+        background: red;
+        color: white;
+        margin-bottom: 10px;
+    }
+</style>
 </head>
 <body>
     <main class="container" style="background:#CCC; padding: 10px">
@@ -18,6 +27,14 @@
                 <li><a href="/connexion">Connexion</a></li>
             </ul>
         </nav>
+
+        <!-- Affichage des erreurs -->
+        <?php if(isset($errors) && count($errors) > 0): ?>
+        <div class="error">
+            <?=implode("<br>", $errors)?>
+        </div>
+        <?php endif; ?>
+
         <?php  include $contentView ?>
     </main>
 </body>
