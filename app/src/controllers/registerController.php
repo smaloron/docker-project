@@ -30,7 +30,7 @@ if($isPosted){
             $pass = password_hash($plainPassword, PASSWORD_DEFAULT);
             // Définition et exécution de la requête SQL
             $sql = "INSERT INTO users (login_name, password_hash, user_name) VALUES (?,?,?)";
-            $statement = $pdo->prepare($sql);
+            $statement = PDO->prepare($sql);
             $statement->execute([$login, $pass, $name]);
             // redirection
             header("location:/accueil");

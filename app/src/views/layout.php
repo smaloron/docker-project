@@ -19,19 +19,12 @@
 </style>
 </head>
 <body>
-    <main class="container" style="background:#403838; padding: 10px">
+    <main class="container" style="padding: 10px">
         <nav>
 
             <ul>
                 <li>
-                    Bonjour
-                    <?php
-                        if(isset($_SESSION['user'])){
-                            echo $_SESSION['user']['user_name'];
-                        } else {
-                            echo "Anonyme";
-                        }
-                    ?>
+                    Bonjour <?= getUserName() ?>
                 </li>
             </ul>
 

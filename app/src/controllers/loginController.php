@@ -21,20 +21,11 @@ if($isPosted){
     if(count($errors) === 0){
         try {
             // Récupération des infos de l'utilisateur
-            $sql = "SELECT * FROM users WHERE login_name = ?";
-            $statement = $pdo->prepare($sql);
-            $statement->execute([$login]);
-            $user = $statement->fetch();
+            $user = findOneUserByLogin($login);
             if($user === false){
                 array_push($errors, "Impossible de trouver l'utilisateur");
             } else {
-                if(! password_verify($plainPassword, $user['password_hash'])){
-                    array_push($errors, "Mot de passe incorrect");
-                } else {
-                    unset($user['password_hash']);
-                    $_SESSION['user'] = $user;
-                    header("location:/accueil");
-                }
+                authenticateUser($plainPassword, $user, $errors);
             }
 
         }catch(PDOException $ex){
