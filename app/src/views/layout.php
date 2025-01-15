@@ -19,8 +19,22 @@
 </style>
 </head>
 <body>
-    <main class="container" style="background:#CCC; padding: 10px">
+    <main class="container" style="background:#403838; padding: 10px">
         <nav>
+
+            <ul>
+                <li>
+                    Bonjour
+                    <?php
+                        if(isset($_SESSION['user'])){
+                            echo $_SESSION['user']['user_name'];
+                        } else {
+                            echo "Anonyme";
+                        }
+                    ?>
+                </li>
+            </ul>
+
             <ul>
                 <li><a href="/accueil">Accueil</a></li>
                 <li><a href="/inscription">Inscription</a></li>
