@@ -38,7 +38,7 @@ if($isPosted){
                 "login_name" => $login,
                 "password_hash" => $pass,
                 "user_name" => $name
-            ])->from('users');
+            ]);
             // Définition et exécution de la requête SQL
             // redirection
             header("location:/accueil");
