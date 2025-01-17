@@ -53,6 +53,7 @@ class DAO
 
     public function deleteOneById(int $id){
         $sql = $this->queryBuilder->delete()
+                                ->from($this->tableName)
                                  ->addWhere("id = ?")
                                  ->getQuery();
         $this->executeQuery($sql, [$id]);
@@ -60,6 +61,7 @@ class DAO
 
     public function update(array $data, $whereClauses){
         $sql = $this->queryBuilder->update()
+                                ->from($this->tableName)
                                  ->setFields(array_keys($data))
                                  ->addWhere($whereClauses)
                                  ->getQuery();
