@@ -10,6 +10,8 @@ define("MODEL_PATH", ROOT_PATH."/src/models/");
 // Inclusion du framework
 require ROOT_PATH. "/core/framework.php";
 
+require ROOT_PATH ."/vendor/autoload.php";
+
 //Inclusion du modèle user
 require MODEL_PATH . "userModel.php"; 
 
