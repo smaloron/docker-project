@@ -109,7 +109,7 @@ class QueryBuilder
 
     private function getINSERTQuery(){
         $placeholders = implode(", ", array_fill(0, count($this->fieldNames), "?"));
-        return "$this->verb ({$this->getFieldList()}) INTO $this->tableName VALUES ($placeholders)";
+        return "$this->verb INTO $this->tableName ({$this->getFieldList()}) VALUES ($placeholders)";
     }
 
     public function getQuery()

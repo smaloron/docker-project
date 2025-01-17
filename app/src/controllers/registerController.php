@@ -1,4 +1,9 @@
 <?php
+use M2i\Core\ORM\DAO;
+use M2i\Core\ORM\QueryBuilder;
+
+$userDao = new DAO(PDO,new QueryBuilder(), "users");
+
 
 $isPosted = filter_has_var(INPUT_POST, "submit");
 $errors = [];
@@ -28,10 +33,13 @@ if($isPosted){
         try {
             // hachage du mot de passe
             $pass = password_hash($plainPassword, PASSWORD_DEFAULT);
+
+            $userDao->insert([
+                "login_name" => $login,
+                "password_hash" => $pass,
+                "user_name" => $name
+            ])->from('users');
             // Définition et exécution de la requête SQL
-            $sql = "INSERT INTO users (login_name, password_hash, user_name) VALUES (?,?,?)";
-            $statement = PDO->prepare($sql);
-            $statement->execute([$login, $pass, $name]);
             // redirection
             header("location:/accueil");
         }catch(PDOException $ex){
